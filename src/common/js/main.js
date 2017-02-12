@@ -71,9 +71,9 @@ function readFile(name, cb) {
         return response.json();
     }).then(function(result) {
         cb(result);
-    }).catch() {
+    }).catch(function(eror) {
         cb({});
-    };
+    });
 }
 
 setNowDate(new Date());
