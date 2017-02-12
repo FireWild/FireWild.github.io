@@ -22,24 +22,27 @@ function getMonthDayNum(year, month) {
 
 function setNowDay(year, month, day) {
     var dayNum = getMonthDayNum(year, month);
-    var data = readFile('user/' + year + '.json');
-    for (var i = day; i < dayNum + day; i++) {
-        dates[i].getElementsByClassName('num')[0].innerHTML = i - day + 1;
-        if (data[month][i]) {
-            var flag = document.createElement('p');
-            flag.innerHTML = '50min';
-            flag.className = 'flag';
-            dates[i].appendChild(flag);
+    readFile('user/' + year + '.json', function(data) {
+        for (var i = day; i < dayNum + day; i++) {
+            dates[i].getElementsByClassName('num')[0].innerHTML = i -
+                day + 1;
+            if (data[month][i]) {
+                var flag = document.createElement('p');
+                flag.innerHTML = '50min';
+                flag.className = 'flag';
+                dates[i].appendChild(flag);
+            }
         }
-    }
+    });
+
 }
 
-function readFile(name) {
+function readFile(name, cb) {
     fetch("src/common/data/" + name).then(function(response) {
         // Convert to JSON
         return response.json();
     }).then(function(result) {
-        return result;
+        cb(result);
     });
 }
 
