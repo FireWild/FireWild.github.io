@@ -54,16 +54,14 @@ function setNowDay(year, month, day) {
             var num = '';
             if (i >= day && i < dayNum + day) {
                 num = i - day + 1;
+
+                var flag = dates[i].getElementsByClassName('flag')[0] || document.createElement('p');
                 if (data[month] && data[month][i - day + 1]) {
-                    var flag = document.createElement('p');
-                    flag.innerHTML = '50min';
+                    flag.innerHTML = data[month][i - day + 1];
                     flag.className = 'flag';
                     dates[i].appendChild(flag);
                 } else {
-                    var flag = dates[i].getElementsByClassName('flag')[0];
-                    if (flag) {
-                        flag.innerHTML = '';
-                    }
+                    flag.innerHTML = '';
                 }
             }
             dates[i].getElementsByClassName('num')[0].innerHTML = num;
