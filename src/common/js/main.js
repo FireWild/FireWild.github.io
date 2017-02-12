@@ -25,7 +25,7 @@ function setNowDay(year, month, day) {
     readFile('user/' + year + '.json', function(data) {
         for (var i = 0; i < dates.length; i++) {
             var num = '';
-            if（ i >= day && i < dayNum + day） {
+            if (i >= day && i < dayNum + day) {
                 num = i - day + 1;
                 if (data[month][i - day + 1]) {
                     var flag = document.createElement('p');
