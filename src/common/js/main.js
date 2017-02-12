@@ -2,6 +2,7 @@ var AT = {};
 
 var yearInput = document.getElementsByClassName('year')[0];
 var monthInput = document.getElementsByClassName('month')[0];
+var day = document.getElementsByClassName('day')[0]
 var dates = document.getElementsByClassName('date');
 var search = document.getElementsByClassName('search')[0];
 
@@ -38,6 +39,10 @@ function getMonthDayNum(year, month) {
 function setNowDay(year, month, day) {
     var dayNum = getMonthDayNum(year, month);
     readFile('user/' + year + '.json', function(data) {
+        for (var i = dates.length; i < dayNum + day; i++) {
+            day.appendChild(dates[0].cloneNode(ture));
+        }
+
         for (var i = 0; i < dates.length; i++) {
             var num = '';
             if (i >= day && i < dayNum + day) {
@@ -66,7 +71,9 @@ function readFile(name, cb) {
         return response.json();
     }).then(function(result) {
         cb(result);
-    });
+    }).catch() {
+        cb({});
+    };
 }
 
 setNowDate(new Date());
@@ -93,5 +100,5 @@ search.addEventListener('click', function() {
     }, 1100);
     setTimeout(function() {
         removeClassForNode('animated slideInRight', 'day');
-    }, 1100);
+    }, 2200);
 }, !1);
