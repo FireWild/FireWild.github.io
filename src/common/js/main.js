@@ -4,8 +4,7 @@ var yearInput = document.getElementsByClassName('year')[0];
 var monthInput = document.getElementsByClassName('month')[0];
 var dates = document.getElementsByClassName('date')
 
-function setNowDate() {
-    var date = new Date();
+function setNowDate(date) {
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     yearInput.value = year;
@@ -28,4 +27,11 @@ function setNowDay(year, month, day) {
     }
 }
 
-setNowDate();
+function readFile(name) {
+    fetch("src/common/data/user/2017.json").then(function(response) {
+        console.log(response)
+    });
+}
+
+readFile();
+setNowDate(new Date());
