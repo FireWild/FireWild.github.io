@@ -13,7 +13,6 @@ p {
 .content{
     width: 980px;
     height: 80vh;
-    margin-top: 10vh;
     margin-left: 50%;
     -webkit-transform: translateX(-490px);
             transform: translateX(-490px);

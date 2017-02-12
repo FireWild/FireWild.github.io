@@ -40,7 +40,7 @@ function setNowDay(year, month, day) {
     var dayNum = getMonthDayNum(year, month);
     readFile('user/' + year + '.json', function(data) {
         for (var i = dates.length; i < dayNum + day; i++) {
-            day.appendChild(dates[0].cloneNode(ture));
+            day.appendChild(dates[0].cloneNode(true));
         }
 
         for (var i = 0; i < dates.length; i++) {
