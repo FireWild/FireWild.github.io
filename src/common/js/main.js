@@ -44,6 +44,10 @@ function setNowDay(year, month, day) {
                 var newNode = dates[0].cloneNode(true);
                 dayNode.appendChild(newNode);
             }
+        } else if (dates.length > 35) {
+            for (var i = 0; i < 7; i++) {
+                dayNode.removeChild(dates[dates.length - 1]);
+            }
         }
 
         for (var i = 0; i < dates.length; i++) {
