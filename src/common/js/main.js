@@ -28,8 +28,11 @@ function setNowDay(year, month, day) {
 }
 
 function readFile(name) {
-    fetch("src/common/data/user/2017.json").then(function(response) {
-        console.log(response)
+    fetch("src/common/data/user/2017.json").then(function(response) { 
+	    // Convert to JSON
+	    return response.json();
+    }).then(function(result) {
+	    console.log(result); 
     });
 }
 
