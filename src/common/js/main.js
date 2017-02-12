@@ -47,6 +47,11 @@ function setNowDay(year, month, day) {
                     flag.innerHTML = '50min';
                     flag.className = 'flag';
                     dates[i].appendChild(flag);
+                } else {
+                    var flag = dates[i].getElementsByClassName('flag')[0];
+                    if (flag) {
+                        flag.innerHTML = '';
+                    }
                 }
             }
             dates[i].getElementsByClassName('num')[0].innerHTML = num;
@@ -76,13 +81,13 @@ search.addEventListener('click', function() {
         return;
     }
 
-    if (!month || month < 0 || month > 12) {
+    if (!month || month < 1 || month > 12) {
         swal("oh no!", "input right month", "error");
         return;
     }
     addClassForNode('animated slideOutLeft', 'day');
     setTimeout(function() {
-        setNowDate(new Date(year, month, 1));
+        setNowDate(new Date(year, month - 1, 1));
         removeClassForNode('animated slideOutLeft', 'day');
         addClassForNode('animated slideInRight', 'day');
     }, 1100);
