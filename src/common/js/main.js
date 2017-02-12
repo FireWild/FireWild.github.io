@@ -23,15 +23,18 @@ function getMonthDayNum(year, month) {
 function setNowDay(year, month, day) {
     var dayNum = getMonthDayNum(year, month);
     readFile('user/' + year + '.json', function(data) {
-        for (var i = day; i < dayNum + day; i++) {
-            dates[i].getElementsByClassName('num')[0].innerHTML = i -
-                day + 1;
-            if (data[month][i - day + 1]) {
-                var flag = document.createElement('p');
-                flag.innerHTML = '50min';
-                flag.className = 'flag';
-                dates[i].appendChild(flag);
+        for (var i = 0; i < dates.length; i++) {
+            var num = '';
+            if（ i >= day && i < dayNum + day） {
+                num = i - day + 1;
+                if (data[month][i - day + 1]) {
+                    var flag = document.createElement('p');
+                    flag.innerHTML = '50min';
+                    flag.className = 'flag';
+                    dates[i].appendChild(flag);
+                }
             }
+            dates[i].getElementsByClassName('num')[0].innerHTML = num;
         }
     });
 
