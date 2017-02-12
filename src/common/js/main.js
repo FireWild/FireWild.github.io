@@ -42,7 +42,7 @@ function setNowDay(year, month, day) {
             var num = '';
             if (i >= day && i < dayNum + day) {
                 num = i - day + 1;
-                if (data[month][i - day + 1]) {
+                if (data[month] && data[month][i - day + 1]) {
                     var flag = document.createElement('p');
                     flag.innerHTML = '50min';
                     flag.className = 'flag';
