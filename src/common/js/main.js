@@ -56,8 +56,9 @@ function setNowDay(year, month, day) {
                 num = i - day + 1;
 
                 var flag = dates[i].getElementsByClassName('flag')[0] || document.createElement('p');
-                if (data[month] && data[month][i - day + 1]) {
-                    flag.innerHTML = data[month][i - day + 1];
+
+                if (data[month] && data[month][i - day + 1] && data[month][i - day + 1][time]) {
+                    flag.innerHTML = data[month][i - day + 1][time];
                     flag.className = 'flag';
                     dates[i].appendChild(flag);
                 } else {
