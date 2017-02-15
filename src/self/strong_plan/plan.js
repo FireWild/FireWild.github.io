@@ -71,7 +71,7 @@ function setNowDay(year, month, day) {
 }
 
 function readFile(name, cb) {
-    fetch("/src/common/data/" + name).then(function(response) {
+    fetch("//src/common/data/" + name).then(function(response) {
         // Convert to JSON
         return response.json();
     }).then(function(result) {
