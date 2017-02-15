@@ -1,5 +1,4 @@
 var AT = {};
-
 var yearInput = document.getElementsByClassName('year')[0];
 var monthInput = document.getElementsByClassName('month')[0];
 var dayNode = document.getElementsByClassName('day')[0]
