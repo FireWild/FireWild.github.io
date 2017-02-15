@@ -37,7 +37,7 @@ function getMonthDayNum(year, month) {
 
 function setNowDay(year, month, day) {
     var dayNum = getMonthDayNum(year, month);
-    readFile('user/' + year + '.json', function(data) {
+    readFile(year + '.json', function(data) {
         if (dates.length < dayNum + day) {
             for (var i = 0; i < 7; i++) {
                 var newNode = dates[0].cloneNode(true);
@@ -71,8 +71,7 @@ function setNowDay(year, month, day) {
 }
 
 function readFile(name, cb) {
-    var url_head = location.protocol + '//' + location.host;
-    fetch(url_head + "/src/common/data/" + name).then(function(response) {
+    fetch('data/' + name).then(function(response) {
         // Convert to JSON
         return response.json();
     }).then(function(result) {
