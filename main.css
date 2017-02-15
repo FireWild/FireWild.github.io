@@ -8,9 +8,9 @@ body{
 
 .link_box {
     position: absolute;
-    width: 80vw;
-    height: 80vh;
-    margin: 10vh 10vw;
+    width: 60vw;
+    height: 100vh;
+    margin: 0 20vw;
     border-style: solid;
     border-width: 1px;
     border-color: #eee;
