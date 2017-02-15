@@ -71,7 +71,7 @@ function setNowDay(year, month, day) {
 }
 
 function readFile(name, cb) {
-    var host = location.host
+    var host = location.host;
     fetch(host + "/src/common/data/" + name).then(function(response) {
         // Convert to JSON
         return response.json();
